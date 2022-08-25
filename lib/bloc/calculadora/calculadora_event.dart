@@ -1,4 +1,13 @@
-// part of 'calculadora_bloc.dart';
+part of 'calculadora_bloc.dart';
 
-// @immutable
-// abstract class CalculadoraEvent {}
+@immutable
+abstract class CalculadoraEvent {}
+
+class ResetearNum extends CalculadoraEvent {
+  
+}
+
+class AgregarNum extends CalculadoraEvent {
+  final String numero;
+  AgregarNum(this.numero);
+}
