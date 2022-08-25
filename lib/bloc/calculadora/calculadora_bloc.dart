@@ -26,9 +26,22 @@ class CalculadoraBloc extends Bloc<CalculadoraEvent, CalculadoraState> {
           resultado: state.resultado.contains('-')
               ? state.resultado.replaceFirst('-', '')
               : '-' + state.resultado);
+    } else if (event is BorrarDigito) {
+      yield state.copyWith(
+          resultado: state.resultado.length > 1
+              ? state.resultado.substring(0, state.resultado.length - 1)
+              : '0');
+    } else if (event is Operacion) {
+      yield state.copyWith(
+          primerNumero: state.resultado,
+          resultado: '0',
+          operador: event.operacion,
+          segundoNumero: '0');
+    } else if (event is CalcularResultado) {
+      yield* this._calcular();
     }
   }
- 
+
   Stream<CalculadoraState> _resetearNum() async* {
     yield CalculadoraState(
       primerNumero: '',
@@ -36,5 +49,20 @@ class CalculadoraBloc extends Bloc<CalculadoraEvent, CalculadoraState> {
       segundoNumero: '',
       resultado: '0',
     );
+  }
+
+  Stream<CalculadoraState> _calcular() async* {
+    final double num1 = double.parse(state.primerNumero);
+    final double num2 = double.parse(state.resultado);
+
+    switch (state.operador) {
+      case '+':
+        yield state.copyWith(
+            segundoNumero: state.resultado, resultado: '${num1 + num2}');
+        break;
+
+      default:
+        yield state;
+    }
   }
 }
