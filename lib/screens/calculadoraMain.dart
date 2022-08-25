@@ -34,7 +34,7 @@ class CalculadoraMain extends StatelessWidget {
                   BotonesCalculadora(
                     text: '+/-',
                     bgColor: Color(0xffA5A5A5),
-                    onPressed: () => print('+/-'),
+                    onPressed: () => calculatorBloc.add(CambiarPositivoNegativo()),
                   ),
                   BotonesCalculadora(
                     text: 'Del',
@@ -75,15 +75,15 @@ class CalculadoraMain extends StatelessWidget {
                 children: [
                   BotonesCalculadora(
                     text: '4',
-                    onPressed: () => print('4'),
+                    onPressed: () => calculatorBloc.add(AgregarNum('4')),
                   ),
                   BotonesCalculadora(
                     text: '5',
-                    onPressed: () => print('5'),
+                    onPressed: () => calculatorBloc.add(AgregarNum('5')),
                   ),
                   BotonesCalculadora(
                     text: '6',
-                    onPressed: () => print('6'),
+                    onPressed: () => calculatorBloc.add(AgregarNum('6')),
                   ),
                   BotonesCalculadora(
                     text: '-',
@@ -97,15 +97,15 @@ class CalculadoraMain extends StatelessWidget {
                 children: [
                   BotonesCalculadora(
                     text: '1',
-                    onPressed: () => print('1'),
+                    onPressed: () => calculatorBloc.add(AgregarNum('1')),
                   ),
                   BotonesCalculadora(
                     text: '2',
-                    onPressed: () => print('2'),
+                    onPressed: () => calculatorBloc.add(AgregarNum('2')),
                   ),
                   BotonesCalculadora(
                     text: '3',
-                    onPressed: () => print('3'),
+                    onPressed: () => calculatorBloc.add(AgregarNum('3')),
                   ),
                   BotonesCalculadora(
                     text: '+',
@@ -120,11 +120,11 @@ class CalculadoraMain extends StatelessWidget {
                   BotonesCalculadora(
                     text: '0',
                     big: true,
-                    onPressed: () => print('0'),
+                    onPressed: () => calculatorBloc.add(AgregarNum('0')),
                   ),
                   BotonesCalculadora(
                     text: '.',
-                    onPressed: () => print('.'),
+                    onPressed: () => calculatorBloc.add(AgregarNum('.')),
                   ),
                   BotonesCalculadora(
                     text: '=',

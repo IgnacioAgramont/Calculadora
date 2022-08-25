@@ -18,6 +18,11 @@ class CalculadoraState {
     String? primerNumero,
     String? segundoNumero,
     String? operador,
-  }) => CalculadoraState();
-
+  }) =>
+      CalculadoraState(
+        resultado: resultado ?? this.resultado,
+        primerNumero: primerNumero ?? this.primerNumero,
+        segundoNumero: segundoNumero ?? this.segundoNumero,
+        operador: operador ?? this.operador,
+      );
 }

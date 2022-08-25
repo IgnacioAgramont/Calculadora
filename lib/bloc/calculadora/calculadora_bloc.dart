@@ -14,21 +14,27 @@ class CalculadoraBloc extends Bloc<CalculadoraEvent, CalculadoraState> {
     CalculadoraEvent event,
   ) async* {
     if (event is ResetearNum) {
-      yield CalculadoraState(
-        primerNumero: '',
-        operador: '',
-        segundoNumero: '',
-        resultado: '0',
-      );
+      yield* this._resetearNum();
     } else if (event is AgregarNum) {
-      yield CalculadoraState(
-        primerNumero: '',
-        operador: '',
-        segundoNumero: '',
+      yield state.copyWith(
         resultado: (state.resultado == '0')
             ? event.numero
             : state.resultado + event.numero,
       );
+    } else if (event is CambiarPositivoNegativo) {
+      yield state.copyWith(
+          resultado: state.resultado.contains('-')
+              ? state.resultado.replaceFirst('-', '')
+              : '-' + state.resultado);
     }
+  }
+ 
+  Stream<CalculadoraState> _resetearNum() async* {
+    yield CalculadoraState(
+      primerNumero: '',
+      operador: '',
+      segundoNumero: '',
+      resultado: '0',
+    );
   }
 }
