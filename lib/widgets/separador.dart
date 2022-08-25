@@ -6,7 +6,7 @@ class Separador extends StatelessWidget {
     return Container(
         width: double.infinity,
         height: 2,
-        color: Colors.white.withOpacity(0.4),
+        color: Color.fromARGB(255, 204, 0, 255),
         margin: EdgeInsets.symmetric(vertical: 10)
     );
   }

@@ -51,6 +51,21 @@ class CalculadoraBloc extends Bloc<CalculadoraEvent, CalculadoraState> {
     );
   }
 
+  // Stream<CalculadoraState> _verificar(dynamic event) async* {
+    // if (!state.resultado.contains('.')) {
+    //   resultado:
+    //   (state.resultado == '0') ? event.numero : state.resultado + event.numero;
+    // } else if (state.resultado.contains('.')) {
+    //   resultado:
+    //   state.resultado;
+    // } else {
+    //   resultado:
+    //   (state.resultado == '0') ? event.numero : state.resultado + event.numero;
+    // }
+  //   resultado:
+  //   (state.resultado == '0') ? event.numero : state.resultado + event.numero;
+  // }
+
   Stream<CalculadoraState> _calcular() async* {
     final double num1 = double.parse(state.primerNumero);
     final double num2 = double.parse(state.resultado);

@@ -13,7 +13,7 @@ class BotonesCalculadora extends StatelessWidget {
     this.big = false,
     required this.text,
     required this.onPressed,
-  })  : this.bgColor = bgColor ?? Color(0xff333333),
+  })  : this.bgColor = bgColor ?? Color.fromARGB(255, 65, 46, 37),
         super(key: key);
 
   @override
