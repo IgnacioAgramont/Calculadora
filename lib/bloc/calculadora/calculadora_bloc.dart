@@ -61,6 +61,21 @@ class CalculadoraBloc extends Bloc<CalculadoraEvent, CalculadoraState> {
             segundoNumero: state.resultado, resultado: '${num1 + num2}');
         break;
 
+      case '-':
+        yield state.copyWith(
+            segundoNumero: state.resultado, resultado: '${num1 - num2}');
+        break;
+
+      case 'x':
+        yield state.copyWith(
+            segundoNumero: state.resultado, resultado: '${num1 * num2}');
+        break;
+
+      case '/':
+        yield state.copyWith(
+            segundoNumero: state.resultado, resultado: '${num1 / num2}');
+        break;
+
       default:
         yield state;
     }

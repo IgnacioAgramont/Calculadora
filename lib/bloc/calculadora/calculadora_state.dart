@@ -7,10 +7,10 @@ class CalculadoraState {
   final String operador;
 
   CalculadoraState({
-    this.resultado = '10',
-    this.primerNumero = '30',
-    this.segundoNumero = '20',
-    this.operador = '-',
+    this.resultado = '0',
+    this.primerNumero = '',
+    this.segundoNumero = '',
+    this.operador = '',
   });
 
   CalculadoraState copyWith({
